@@ -14,6 +14,7 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-slider@1.12.1/jquery-ui.min.css">
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
@@ -66,7 +67,7 @@
 <div class="middle-line">
     <div class="container flex-center">
         <a class="middle-line-logo" href="/">
-            <img src="{{ asset('images\logo.png')}}" width="128" height="64" alt="">
+            <img src="{{ asset('images\logo1.png')}}" width="75" height="75" alt="">
         </a>
         <form class="fast-search">
             <div class="fast-search__input">
@@ -162,46 +163,19 @@
     </div>
 </nav>
 
-<header class="header">
 
-    <div class="swiper header-carousel">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide header-carousel__slide"
-                 style="background-image: url('{{asset('images/banner1.jpg')}}')">
-                <div class="container">
-                    <h3 class="header-carousel__title">Бери більше<br>Плати менше</h3>
-                    <div class="header-carousel__desc">
-                        <p>іфвіфвіфвіфвфівфівфівфівф</p>
-                    </div>
-                    <a href="Детальніше"></a>
-                </div>
-            </div>
-            <div class="swiper-slide header-carousel__slide"
-                 style="background-image: url('{{asset('images/banner2.webp')}}')">>
-                <div class="container">
-                    <h3 class="header-carousel__title">ліжко<br>там</h3>
-                    <div class="header-carousel__desc">
-                        <p>іфвіфвіфвіфвфівфівфівфівф</p>
-                    </div>
-                    <a href="Детальніше"></a>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-    </div>
+@yield('content')
 
-</header>
+@include('partials.footer')
 
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    });
+    if (window.location.pathname != '/') {
+        $('.list-cat__drop').hide()
+    }
 </script>
 
+@yield('scripts')
 </body>
 </html>
